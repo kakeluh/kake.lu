@@ -1,0 +1,33 @@
+---
+import BaseHead from '../components/BaseHead.astro'
+import Footer from '../components/Footer.astro'
+import FormattedDate from '../components/FormattedDate.astro'
+import Icon from '../components/Icon.astro'
+---
+
+<!doctype html>
+<html lang="ja">
+  <head>
+    <BaseHead title="about" description="このサイトについて" />
+  </head>
+  <body class="flex min-h-screen flex-col">
+    <main class="prose mx-auto w-full flex-1">
+      <nav>
+        <p class="flex items-center gap-2">
+          <a href="/">
+            <Icon name="home" class="h-4 w-4" />
+          </a>
+          <Icon name="chevron-right" class="h-4 w-4" />
+          <span>このサイトについて</span>
+        </p>
+      </nav>
+      <h1>自己紹介</h1>
+      <span
+        >名前: 平井駆<br />生年月日: <FormattedDate
+          date={new Date('2001-07-11')}
+        /></span
+      >
+    </main>
+    <Footer />
+  </body>
+</html>

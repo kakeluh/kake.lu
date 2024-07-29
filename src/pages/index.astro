@@ -1,0 +1,31 @@
+---
+import BaseHead from '../components/BaseHead.astro'
+import Footer from '../components/Footer.astro'
+import { SITE_DESCRIPTION, SITE_TITLE } from '../consts'
+---
+
+<!doctype html>
+<html lang="ja">
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+  </head>
+  <body class="flex min-h-screen flex-col">
+    <main class="prose mx-auto w-full flex-1">
+      <h1
+        class="mt-16 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 bg-clip-text text-center text-7xl font-black text-transparent"
+      >
+        kake.lu
+        <p class="text-lg font-medium text-gray-600">平井駆のサイト</p>
+      </h1>
+      <ul role="list">
+        <li>
+          <a href="/about">このサイトについて</a>
+        </li>
+        <li>
+          <a href="/blog">ブログ</a>
+        </li>
+      </ul>
+    </main>
+    <Footer />
+  </body>
+</html>
