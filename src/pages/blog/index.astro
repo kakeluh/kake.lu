@@ -1,9 +1,9 @@
 ---
 import { getCollection } from 'astro:content'
 import BaseHead from '../../components/BaseHead.astro'
+import Breadcrumb from '../../components/Breadcrumb.astro'
 import Footer from '../../components/Footer.astro'
 import FormattedDate from '../../components/FormattedDate.astro'
-import Icon from '../../components/Icon.astro'
 import { SITE_DESCRIPTION, SITE_TITLE } from '../../consts'
 
 const posts = (await getCollection('blog')).sort(
@@ -18,15 +18,12 @@ const posts = (await getCollection('blog')).sort(
   </head>
   <body class="flex min-h-screen flex-col">
     <main class="prose mx-auto w-full flex-1">
-      <nav>
-        <p class="flex items-center gap-2">
-          <a href="/">
-            <Icon name="home" class="h-4 w-4" />
-          </a>
-          <Icon name="chevron-right" class="h-4 w-4" />
-          <span>ブログ</span>
-        </p>
-      </nav>
+      <Breadcrumb
+        nav={[
+          { icon: 'home', link: '/', label: 'ホーム' },
+          { title: 'ブログ' },
+        ]}
+      />
       <section>
         <ul role="list">
           {

@@ -1,0 +1,35 @@
+---
+import Icon from './Icon.astro'
+
+type Props = {
+  nav: {
+    icon?: string
+    title?: string
+    link?: string
+    label?: string
+  }[]
+}
+
+const { nav } = Astro.props
+---
+
+<nav>
+  <p class="flex items-center gap-2">
+    {
+      nav.map((n, i) => (
+        <Fragment>
+          {n.link ? (
+            <a href={n.link} aria-label={n.label ?? n.title ?? 'link'}>
+              {n.title ?? <Icon name={n.icon} class="h-4 w-4" />}
+            </a>
+          ) : (
+            <span>{n.title}</span>
+          )}
+          {i !== nav.length - 1 && (
+            <Icon name="chevron-right" class="h-4 w-4" />
+          )}
+        </Fragment>
+      ))
+    }
+  </p>
+</nav>
