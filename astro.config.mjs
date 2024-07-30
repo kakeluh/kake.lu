@@ -8,5 +8,6 @@ import { defineConfig } from 'astro/config'
 // https://astro.build/config
 export default defineConfig({
   site: 'https://kake.lu',
+  trailingSlash: 'never',
   integrations: [alpinejs(), mdx(), sitemap(), tailwind()],
 })
